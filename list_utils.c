@@ -1,4 +1,4 @@
-#include "liste.h"
+#include "push_swap.h"
 
 t_lista	*create_elem(int n, int i)
 {
@@ -21,11 +21,11 @@ void	ft_add_element(t_lista **lista, int n, int i)
 		*lista = create_elem(n , i);
 	else
 	{
-	while (tmp->next)
+		while (tmp->next)
 		tmp = tmp->next;
-	new = create_elem(n, i);
-	tmp->next = new;
-	new->prev = tmp;
+		new = create_elem(n, i);
+		tmp->next = new;
+		new->prev = tmp;
 	}
 }
 
@@ -34,13 +34,32 @@ void	ft_remove_first(t_lista **lista)
 	t_lista	*tmp;
 
 	tmp = *lista;
-	*lista = (*lista)->next;
-	(*lista)->prev = NULL;
-	free (tmp);
-	tmp = *lista;
+	if ((*lista)->next)
+	{
+		*lista = (*lista)->next;
+		(*lista)->prev = NULL;
+		free (tmp);
+		tmp = *lista;
+		while (tmp)
+		{
+			tmp->idx -= 1;
+			tmp = tmp->next;
+		}
+	}
+	else (*lista) = NULL;
+}
+
+int	ft_list_length(t_lista *lista)
+{
+	t_lista	*tmp;
+	int		i;
+
+	i = 0;
+	tmp = lista;
 	while (tmp)
 	{
-		tmp->idx -= 1;
 		tmp = tmp->next;
+		i++;
 	}
+	return (i);
 }

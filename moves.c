@@ -1,4 +1,4 @@
-#include "liste.h"
+#include "push_swap.h"
 
 void	sa_sb(t_lista *lista)
 {
@@ -33,11 +33,25 @@ void	ra_rb(t_lista *lista)
 	}
 }
 
+void	ft_add_element_to_start(t_lista **lista, int nb, int idx)
+{
+	t_lista	*new;
+
+	new = create_elem(nb, idx);
+	if (!*lista)
+		*lista = new;
+	else
+	{
+		new->next = (*lista);
+		(*lista)->prev = new;
+		*lista = new;
+	}
+}
+
 void	pa_pb(t_lista **a, t_lista **b)
 {
-
 	int	tmp;
 	tmp = (*a)->nb;
-	ft_add_element(b, tmp, 0);
+	ft_add_element_to_start(b, tmp, 0);
 	ft_remove_first(a);
 }
