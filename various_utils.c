@@ -28,7 +28,6 @@ int	how_many_moves_fb(t_lista *lista)
 	{
 		lista = lista->next;
 	}
-	printf("%d sono arrivato a\n", lista->nb);
 	while (lista->prev)
 	{
 		if (tmp > lista->nb)
@@ -37,4 +36,76 @@ int	how_many_moves_fb(t_lista *lista)
 		lista = lista->prev;
 	}
 	return (i);
+}
+
+int	ft_is_the_largest(int n, t_lista *lista)
+{
+	t_lista	*tmp;
+
+	tmp = lista;
+	while (tmp)
+	{
+		if (tmp->nb > n)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
+int	ft_is_the_smallest(int n, t_lista *lista)
+{
+	t_lista	*tmp;
+
+	tmp = lista;
+	while (tmp)
+	{
+		if (tmp->nb < n)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
+int	ft_doing_ra(t_lista *lista)
+{
+	int	i;
+	int	b;
+	t_lista	*tmp;
+
+	i = 0;
+	tmp = lista;
+	while (ft_is_the_smallest(lista->nb, lista) == 0)
+	{
+		ra_rb(lista, 0);
+		i++;
+	}
+	b = i;
+	while (i > 0)
+	{
+		rra_rrb(lista, 0);
+		i--;
+	}
+	return (b);
+}
+
+int	ft_doing_rra(t_lista *lista)
+{
+	int	i;
+	int	b;
+	t_lista	*tmp;
+
+	i = 0;
+	tmp = lista;
+	while (ft_is_the_smallest(lista->nb, lista) == 0)
+	{
+		rra_rrb(lista, 0);
+		i++;
+	}
+	b = i;
+	while (i > 0)
+	{
+		ra_rb(lista, 0);
+		i--;
+	}
+	return (b);
 }

@@ -39,12 +39,6 @@ void	ft_remove_first(t_lista **lista)
 		*lista = (*lista)->next;
 		(*lista)->prev = NULL;
 		free (tmp);
-		tmp = *lista;
-		while (tmp)
-		{
-			tmp->idx -= 1;
-			tmp = tmp->next;
-		}
 	}
 	else (*lista) = NULL;
 }
@@ -62,4 +56,19 @@ int	ft_list_length(t_lista *lista)
 		i++;
 	}
 	return (i);
+}
+
+void	ft_set_indexes(t_lista *lista)
+{
+	int	i;
+	t_lista	*tmp;
+
+	tmp = lista;
+	i = 0;
+	while (tmp)
+	{
+		tmp->idx = i;
+		i++;
+		tmp = tmp->next;
+	}
 }
