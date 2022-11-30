@@ -71,3 +71,10 @@ void	pa_pb(t_lista **a, t_lista **b, char c)
 	else if (c == 'b')
 		printf("pb\n");
 }
+
+void	rrab(t_lista *a, t_lista *b)
+{
+	ra_rb(a, 0);
+	ra_rb(b, 0);
+	printf("rr");
+}

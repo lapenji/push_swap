@@ -19,6 +19,8 @@ SRCS        :=      list_utils.c \
                           push_swap.c \
                           ft_atoi.c \
 						  various_utils.c \
+						  calcoli.c \
+						  utils_2.c \
 
 OBJS        := $(SRCS:.c=.o)
 

@@ -6,6 +6,14 @@ typedef struct s_lista
 	struct s_lista	*prev;
 }	t_lista;
 
+typedef struct s_prg
+{
+	int	best_lis;
+	int	max_count;
+	int	min_nb_a;
+	int	min_nb_b;
+}	t_prg;
+
 #include <stdlib.h>
 #include <stdio.h>
 int	ft_atoi(const char *nptr);
@@ -24,4 +32,11 @@ int		ft_is_the_largest(int n, t_lista *lista);
 int		ft_is_the_smallest(int n, t_lista *lista);
 int		ft_doing_ra(t_lista *lista);
 int		ft_doing_rra(t_lista *lista);
-
+void	ft_lis_first(t_lista *lista, t_prg *prg);
+int		ft_doing_ra_lis(t_lista *lista, int nb);
+int		ft_doing_rra_lis(t_lista *lista, int nb);
+void	rrab(t_lista *a, t_lista *b);
+int		ft_find_min(t_lista *lista);
+int		ft_find_max(t_lista *lista);
+void	ft_order_lis(t_lista *lista, t_prg *prg, char c);
+void	ft_pusha_in_b(t_lista **a, t_lista **b, t_prg *prg);

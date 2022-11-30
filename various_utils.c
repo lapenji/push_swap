@@ -109,3 +109,47 @@ int	ft_doing_rra(t_lista *lista)
 	}
 	return (b);
 }
+
+int	ft_doing_ra_lis(t_lista *lista, int nb)
+{
+	int	i;
+	int	b;
+	t_lista	*tmp;
+
+	i = 0;
+	tmp = lista;
+	while (lista->nb != nb)
+	{
+		ra_rb(lista, 0);
+		i++;
+	}
+	b = i;
+	while (i > 0)
+	{
+		rra_rrb(lista, 0);
+		i--;
+	}
+	return (b);
+}
+
+int	ft_doing_rra_lis(t_lista *lista, int nb)
+{
+	int	i;
+	int	b;
+	t_lista	*tmp;
+
+	i = 0;
+	tmp = lista;
+	while (tmp->nb != nb)
+	{
+		rra_rrb(lista, 0);
+		i++;
+	}
+	b = i;
+	while (i > 0)
+	{
+		ra_rb(lista, 0);
+		i--;
+	}
+	return (b);
+}
