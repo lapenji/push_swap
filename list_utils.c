@@ -72,3 +72,12 @@ void	ft_set_indexes(t_lista *lista)
 		tmp = tmp->next;
 	}
 }
+
+t_lista	*ft_list_last(t_lista *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}

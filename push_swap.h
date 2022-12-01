@@ -12,6 +12,7 @@ typedef struct s_prg
 	int	max_count;
 	int	min_nb_a;
 	int	min_nb_b;
+	int	max_nb_a;
 }	t_prg;
 
 #include <stdlib.h>
@@ -38,5 +39,14 @@ int		ft_doing_rra_lis(t_lista *lista, int nb);
 void	rrab(t_lista *a, t_lista *b);
 int		ft_find_min(t_lista *lista);
 int		ft_find_max(t_lista *lista);
-void	ft_order_lis(t_lista *lista, t_prg *prg, char c);
+void	ft_order_lis(t_lista *lista, char c, int min);
 void	ft_pusha_in_b(t_lista **a, t_lista **b, t_prg *prg);
+t_lista	*ft_list_last(t_lista *lst);
+int	ft_doing_ra_target(t_lista *lista, int target);
+int	ft_doing_rra_target(t_lista *lista, int target);
+int	ft_doing_ra_case_2(t_lista *lista, int target);
+int	ft_doing_rra_case_2(t_lista *lista, int target);
+
+
+
+

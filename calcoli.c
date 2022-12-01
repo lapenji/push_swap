@@ -6,7 +6,6 @@ void	ft_lis_first(t_lista *lista, t_prg *prg)
 	int	count;
 	int	tmpnb;
 	int	i;
-	int	tmpnb2;
 
 	i = 0;
 	count = 1;
@@ -16,7 +15,6 @@ void	ft_lis_first(t_lista *lista, t_prg *prg)
 	{
 		tmp = lista;
 		tmpnb = tmp->nb;
-		tmpnb2 = tmp->nb;
 		while (tmp)
 		{
 			if (tmpnb < tmp->nb)
@@ -29,10 +27,11 @@ void	ft_lis_first(t_lista *lista, t_prg *prg)
 		if (count > prg->max_count)
 		{
 			prg->max_count = count;
-			prg->best_lis = tmpnb2;
+			prg->best_lis = lista->nb;
 		}
 		count = 1;
 		ra_rb(lista, 0);
+		tmpnb = lista->nb;
 		i++;
 	}
 }
