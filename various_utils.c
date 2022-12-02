@@ -70,10 +70,8 @@ int	ft_doing_ra(t_lista *lista)
 {
 	int	i;
 	int	b;
-	t_lista	*tmp;
 
 	i = 0;
-	tmp = lista;
 	while (ft_is_the_smallest(lista->nb, lista) == 0)
 	{
 		ra_rb(lista, 0);
@@ -176,10 +174,8 @@ int	ft_doing_rra(t_lista *lista)
 {
 	int	i;
 	int	b;
-	t_lista	*tmp;
 
 	i = 0;
-	tmp = lista;
 	while (ft_is_the_smallest(lista->nb, lista) == 0)
 	{
 		rra_rrb(lista, 0);
@@ -198,10 +194,8 @@ int	ft_doing_ra_lis(t_lista *lista, int nb)
 {
 	int	i;
 	int	b;
-	t_lista	*tmp;
 
 	i = 0;
-	tmp = lista;
 	while (lista->nb != nb)
 	{
 		ra_rb(lista, 0);

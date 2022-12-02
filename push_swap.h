@@ -46,6 +46,8 @@ int	ft_doing_ra_target(t_lista *lista, int target);
 int	ft_doing_rra_target(t_lista *lista, int target);
 int	ft_doing_ra_case_2(t_lista *lista, int target);
 int	ft_doing_rra_case_2(t_lista *lista, int target);
+void	ft_pusha_in_a(t_lista *b, t_lista *a, t_prg *prg);
+void	ft_print_list(t_lista *lista);
 
 
 
