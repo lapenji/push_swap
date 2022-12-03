@@ -1,46 +1,40 @@
 #include "push_swap.h"
 
-t_lista	*create_elem(int n, int i)
+static t_lista	*create_elem(int n)
 {
 	t_lista	*elem;
 	elem = (t_lista *)malloc(sizeof(t_lista));
 	elem->nb = n;
-	elem->idx = i;
 	elem->next = NULL;
 	elem->prev = NULL;
 	return(elem);
 }
 
-void	ft_add_element(t_lista **lista, int n, int i)
+void	ft_add_element(t_lista **lista, int n)
 {
 	t_lista	*new;
 	t_lista *tmp;
 
 	tmp = *lista;
 	if (!*lista)
-		*lista = create_elem(n , i);
+		*lista = create_elem(n);
 	else
 	{
 		while (tmp->next)
 		tmp = tmp->next;
-		new = create_elem(n, i);
+		new = create_elem(n);
 		tmp->next = new;
 		new->prev = tmp;
 	}
 }
 
-void	ft_remove_first(t_lista **lista)
+void	ft_print_list(t_lista *lista)
 {
-	t_lista	*tmp;
-
-	tmp = *lista;
-	if ((*lista)->next)
+	while(lista)
 	{
-		*lista = (*lista)->next;
-		(*lista)->prev = NULL;
-		free (tmp);
+		printf("%d\n", lista->nb);
+		lista = lista->next;
 	}
-	else (*lista) = NULL;
 }
 
 int	ft_list_length(t_lista *lista)
@@ -58,26 +52,17 @@ int	ft_list_length(t_lista *lista)
 	return (i);
 }
 
-void	ft_set_indexes(t_lista *lista)
+void	ft_add_element_to_start(t_lista **lista, int nb)
 {
-	int	i;
-	t_lista	*tmp;
+	t_lista	*new;
 
-	tmp = lista;
-	i = 0;
-	while (tmp)
+	new = create_elem(nb);
+	if (!*lista)
+		*lista = new;
+	else
 	{
-		tmp->idx = i;
-		i++;
-		tmp = tmp->next;
+		new->next = (*lista);
+		(*lista)->prev = new;
+		*lista = new;
 	}
-}
-
-t_lista	*ft_list_last(t_lista *lst)
-{
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
 }

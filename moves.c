@@ -13,6 +13,19 @@ void	sa_sb(t_lista *lista, char c)
 		printf("sb\n");
 }
 
+void	ra_rb(t_lista *lista, char c)
+{
+	while (lista->next)
+	{
+		sa_sb(lista, 0);
+		lista = lista->next;
+	}
+	if (c == 'a')
+		printf("ra\n");
+	else if (c == 'b')
+		printf("rb\n");
+}
+
 void	rra_rrb(t_lista	*lista, char c)
 {
 	int	swap;
@@ -32,39 +45,11 @@ void	rra_rrb(t_lista	*lista, char c)
 		printf("rrb\n");
 }
 
-void	ra_rb(t_lista *lista, char c)
-{
-	while (lista->next)
-	{
-		sa_sb(lista, 0);
-		lista = lista->next;
-	}
-	if (c == 'a')
-		printf("ra\n");
-	else if (c == 'b')
-		printf("rb\n");
-}
-
-void	ft_add_element_to_start(t_lista **lista, int nb, int idx)
-{
-	t_lista	*new;
-
-	new = create_elem(nb, idx);
-	if (!*lista)
-		*lista = new;
-	else
-	{
-		new->next = (*lista);
-		(*lista)->prev = new;
-		*lista = new;
-	}
-}
-
 void	pa_pb(t_lista **a, t_lista **b, char c)
 {
 	int	tmp;
 	tmp = (*a)->nb;
-	ft_add_element_to_start(b, tmp, 0);
+	ft_add_element_to_start(b, tmp);
 	ft_remove_first(a);
 	if (c == 'a')
 		printf("pa\n");

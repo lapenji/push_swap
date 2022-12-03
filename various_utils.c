@@ -1,233 +1,47 @@
 #include "push_swap.h"
 
-int	how_many_moves(t_lista *lista)
+int	ft_atoi(const char *nptr)
 {
 	int	i;
-	int	tmp;
+	int	result;
+	int	sign;
 
 	i = 0;
-	tmp = lista->nb;
-	while (lista->next)
+	result = 0;
+	sign = 1;
+	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
+		i++;
+	if (nptr[i] == '+' || nptr[i] == '-')
 	{
-		if (tmp < lista->next->nb)
-			return(i);
+		if (nptr[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		result = result * 10 + nptr[i] - '0';
+		i++;
+	}
+	return (result * sign);
+}
+
+int	ft_find_min(t_lista *lista)
+{
+	int	tmpmin;
+
+	tmpmin = lista->nb;
+	while (lista)
+	{
+		if (lista->nb < tmpmin)
+			tmpmin = lista->nb;
 		lista = lista->next;
-		i++;
 	}
-	return (i);
+	return (tmpmin);
 }
 
-int	how_many_moves_fb(t_lista *lista)
+int	ft_absolute(int nb)
 {
-	int	i;
-	int	tmp;
-
-	i = 1;
-	tmp = lista->nb;
-	while (lista->next)
-	{
-		lista = lista->next;
-	}
-	while (lista->prev)
-	{
-		if (tmp > lista->nb)
-			return (i);
-		i++;
-		lista = lista->prev;
-	}
-	return (i);
-}
-
-int	ft_is_the_largest(int n, t_lista *lista)
-{
-	t_lista	*tmp;
-
-	tmp = lista;
-	while (tmp)
-	{
-		if (tmp->nb > n)
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
-}
-
-int	ft_is_the_smallest(int n, t_lista *lista)
-{
-	t_lista	*tmp;
-
-	tmp = lista;
-	while (tmp)
-	{
-		if (tmp->nb < n)
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
-}
-
-int	ft_doing_ra(t_lista *lista)
-{
-	int	i;
-	int	b;
-
-	i = 0;
-	while (ft_is_the_smallest(lista->nb, lista) == 0)
-	{
-		ra_rb(lista, 0);
-		i++;
-	}
-	b = i;
-	while (i > 0)
-	{
-		rra_rrb(lista, 0);
-		i--;
-	}
-	return (b);
-}
-
-int	ft_doing_ra_case_2(t_lista *lista, int target)
-{
-	int i;
-	int b;
-	i = 0;
-
-	while (lista->nb != target)
-	{
-		ra_rb(lista, 0);
-		i++;
-	}
-	b = i;
-	while (i > 0)
-	{
-		rra_rrb(lista, 0);
-		i--;
-	}
-	return (b);
-}
-
-int	ft_doing_rra_case_2(t_lista *lista, int target)
-{
-	int i;
-	int b;
-	i = 0;
-
-	while (lista->nb != target)
-	{
-		rra_rrb(lista, 0);
-		i++;
-	}
-	b = i;
-	while (i > 0)
-	{
-		ra_rb(lista, 0);
-		i--;
-	}
-	return (b);
-}
-
-int	ft_doing_ra_target(t_lista *lista, int target)
-{
-	int	count;
-	int	b;
-	t_lista	*tmp;
-
-	tmp = lista;
-	count = 0;
-	while (!(target < tmp->nb && target > ft_list_last(tmp)->nb))
-	{
-		ra_rb(tmp, 0);
-		count ++;
-	}
-	b = count;
-	while (count > 0)
-	{
-		rra_rrb(tmp, 0);
-		count --;
-	}
-	return (b);
-}
-
-int ft_doing_rra_target(t_lista *lista, int target)
-{
-	int	count;
-	int	b;
-	t_lista	*tmp;
-
-	tmp = lista;
-	count = 0;
-	while (!(target < tmp->nb && target > ft_list_last(tmp)->nb))
-	{
-		rra_rrb(tmp, 0);
-		count ++;
-	}
-	b = count;
-	while (count > 0)
-	{
-		ra_rb(tmp, 0);
-		count --;
-	}
-	return (b);
-}
-
-int	ft_doing_rra(t_lista *lista)
-{
-	int	i;
-	int	b;
-
-	i = 0;
-	while (ft_is_the_smallest(lista->nb, lista) == 0)
-	{
-		rra_rrb(lista, 0);
-		i++;
-	}
-	b = i;
-	while (i > 0)
-	{
-		ra_rb(lista, 0);
-		i--;
-	}
-	return (b);
-}
-
-int	ft_doing_ra_lis(t_lista *lista, int nb)
-{
-	int	i;
-	int	b;
-
-	i = 0;
-	while (lista->nb != nb)
-	{
-		ra_rb(lista, 0);
-		i++;
-	}
-	b = i;
-	while (i > 0)
-	{
-		rra_rrb(lista, 0);
-		i--;
-	}
-	return (b);
-}
-
-int	ft_doing_rra_lis(t_lista *lista, int nb)
-{
-	int	i;
-	int	b;
-	t_lista	*tmp;
-
-	i = 0;
-	tmp = lista;
-	while (tmp->nb != nb)
-	{
-		rra_rrb(lista, 0);
-		i++;
-	}
-	b = i;
-	while (i > 0)
-	{
-		ra_rb(lista, 0);
-		i--;
-	}
-	return (b);
+	if (nb < 0)
+		nb *= -1;
+	return (nb);
 }
