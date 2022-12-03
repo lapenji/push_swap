@@ -59,7 +59,7 @@ int	*ft_create_movb_array(t_lista *lista)
 	tmplen = ft_list_length(lista);
 	while (lista)
 	{
-		if (i <= (tmplen / 2))
+		if (i < (tmplen / 2))
 			res[i] = i;
 		else
 			res[i] = (i - tmplen);
@@ -69,40 +69,125 @@ int	*ft_create_movb_array(t_lista *lista)
 	return (res);
 }
 
+int	ft_find_best_move_ra(t_lista *a, int target, t_prg *prg)
+{
+	int	res;
+	int	i;
+
+	res = 0;
+	prg->min_nb_a = ft_find_min(a);
+	if (target < prg->min_nb_a)
+	{
+		while (a->nb != prg->min_nb_a)
+		{
+			res++;
+			ra_rb(a, 0);
+		}
+		i = res;
+		while (i > 0)
+		{
+			rra_rrb(a, 0);
+			i--;
+		}
+	}
+	else
+	{
+		while (!(target < a->nb && target > ft_list_last(a)->nb))
+		{
+			ra_rb(a, 0);
+			res++;
+		}
+		i = res;
+		while (i > 0)
+		{
+			rra_rrb(a, 0);
+			i--;
+		}
+	}
+	return (res);
+}
+
+int	ft_find_best_move_rra(t_lista *a, int target, t_prg *prg)
+{
+	int	res;
+	int	i;
+
+	res = 0;
+	prg->min_nb_a = ft_find_min(a);
+	if (target < prg->min_nb_a)
+	{
+		while (a->nb != prg->min_nb_a)
+		{
+			res++;
+			rra_rrb(a, 0);
+		}
+		i = res;
+		while (i > 0)
+		{
+			ra_rb(a, 0);
+			i--;
+		}
+	}
+	else
+	{
+		while (!(target < a->nb && target > ft_list_last(a)->nb))
+		{
+			rra_rrb(a, 0);
+			res++;
+		}
+		i = res;
+		while (i > 0)
+		{
+			ra_rb(a, 0);
+			i--;
+		}
+	}
+	return (res * -1);
+}
+
 int	*ft_create_mova_array(t_lista *a, t_lista *b, t_prg *prg)
 {
 	int	*res;
 	int	i;
+	int	ra;
+	int rra;
 
 	i = 0;
 	res = (int *)malloc(sizeof(int) * ft_list_length(b));
 	while (b)
 	{
-		if(b->nb > prg->min_nb_a && b->nb < prg->max_nb_a)
-		{
-			if (ft_doing_ra_target(a, b->nb) < ft_doing_rra_target(a, b->nb))
-				res[i] = ft_doing_ra_target(a, b->nb);
-			else
-				res[i] = ft_doing_rra_target(a, b->nb) * -1;
-		}
-		else if (b->nb < prg->min_nb_a)
-		{
-			if (ft_doing_ra_case_2(a, prg->min_nb_a) < ft_doing_rra_case_2(a, prg->min_nb_a))
-				res[i] = ft_doing_ra_case_2(a, prg->min_nb_a);
-			else
-				res[i] = ft_doing_rra_case_2(a, prg->min_nb_a) * -1;
-		}
-		else if (b->nb > prg->max_nb_a)
-		{
-			if (ft_doing_ra_case_2(a, prg->min_nb_a) < ft_doing_rra_case_2(a, prg->min_nb_a))
-				res[i] = ft_doing_ra_case_2(a, prg->max_nb_a);
-			else
-				res[i] = ft_doing_rra_case_2(a, prg->max_nb_a) * -1;
-		}
+		ra = ft_find_best_move_ra(a, b->nb, prg);
+		rra = ft_find_best_move_rra(a, b->nb, prg);
+		if (positivize(ra) < positivize(rra))
+			res[i] = ra;
+		else
+			res[i] = rra;
 		i++;
 		b = b->next;
 	}
 	return (res);
+}
+
+int	ft_find_value(int *mova, int *movb, int i)
+{
+	if (mova[i] >= 0 && movb[i] >= 0)
+	{
+		if (mova[i] > movb[i])
+			return (mova[i]);
+		else
+			return (movb[i]);
+	}
+	else if (mova[i] >= 0 && movb[i] <= 0)
+		return (mova[i] + positivize(movb[i]));
+	else if (mova[i] <= 0 && movb[i] >= 0)
+		return (positivize(mova[i]) + movb[i]);
+	else
+	{
+		if(mova[i] < movb[i])
+			return (positivize(mova[i]));
+		else
+			return (positivize(movb[i]));
+	}
 }
 
 int	do_best_move(t_lista *b, int *mova, int *movb)
@@ -111,16 +196,18 @@ int	do_best_move(t_lista *b, int *mova, int *movb)
 	int	x;
 	int best;
 	int	besti;
+	int	tmp;
 
-	besti = 2147483647;
+	besti = 0;
 	i = 0;
-	best = 2147483647;
+	best = ft_find_value(mova, movb, i);
 	x = ft_list_length(b);
 	while (i < x)
 	{
-		if (positivize(mova[i]) + positivize(movb[i]) < best)
+		tmp = ft_find_value(mova, movb, i);
+		if (tmp < best)
 		{
-			best = positivize(mova[i]) + positivize(movb[i]);
+			best = tmp;
 			besti = i;
 		}
 		i++;
@@ -134,6 +221,9 @@ int	main(int argc, char **argv)
 	t_lista	*a;
 	t_prg	prg;
 	t_lista	*b;
+	int *mova;
+	int *movb;
+	int migliore;
 
 	i = 1;
 	b = NULL;
@@ -149,112 +239,102 @@ int	main(int argc, char **argv)
 	ft_pusha_in_b(&a, &b, &prg);
 	prg.min_nb_a = ft_find_min(a);
 	prg.max_nb_a = ft_find_max(a);
-	int *mova = ft_create_mova_array(a, b, &prg);
-	int *movb = ft_create_movb_array(b);
-	int migliore = do_best_move(b, mova, movb);
-	//ft_pusha_in_a(b, a, &prg);
-	// while (ft_list_length(b) > 0)
+	mova = ft_create_mova_array(a, b, &prg);
+	i = 0;
+	// ft_print_list(a);
+	// printf("\n-------\n");
+	// ft_print_list(b);
+	// while (i < ft_list_length(b))
 	// {
-	// 	if(b->nb > prg.min_nb_a && b->nb < prg.max_nb_a)
-	// 	{
-	// 		if (ft_doing_ra_target(a, b->nb) < ft_doing_rra_target(a, b->nb))
-	// 		{
-	// 			while (!(b->nb < a->nb && b->nb > ft_list_last(a)->nb))
-	// 				ra_rb(a, 'a');
-	// 			pa_pb(&b, &a, 'a');
-	// 			rra_rrb(a, 'a');
-	// 		}
-	// 		else
-	// 		{
-	// 			while (!(b->nb < a->nb && b->nb > ft_list_last(a)->nb))
-	// 				rra_rrb(a, 'a');
-	// 			pa_pb(&b, &a, 'a');
-	// 			ra_rb(a, 'a');
-	// 		}
-	// 	}
-	// 	else if (b->nb < prg.min_nb_a)
-	// 	{
-	// 		if (ft_doing_ra_case_2(a, prg.min_nb_a) < ft_doing_rra_case_2(a, prg.min_nb_a))
-	// 		{
-	// 			while (a->nb != prg.min_nb_a)
-	// 				ra_rb(a, 'a');
-	// 		}
-	// 		else
-	// 		{
-	// 			while (a->nb != prg.min_nb_a)
-	// 				rra_rrb(a, 'a');
-	// 		}
-	// 		pa_pb(&b, &a , 'a');
-	// 		prg.min_nb_a = ft_find_min(a);
-	// 	}
-	// 	else if (b->nb > prg.max_nb_a)
-	// 	{
-	// 		if (ft_doing_ra_case_2(a, prg.max_nb_a) < ft_doing_rra_case_2(a, prg.max_nb_a))
-	// 		{
-	// 			while (a->nb != prg.max_nb_a)
-	// 				ra_rb(a, 'a');
-	// 		}
-	// 		else
-	// 		{
-	// 			while (a->nb != prg.max_nb_a)
-	// 				rra_rrb(a, 'a');
-	// 		}
-	// 		pa_pb(&b, &a, 'b');
-	// 		prg.max_nb_a = ft_find_max(a);
-	// 	}
+	// 	printf("\nbest mova = %d\n", mova[i]);
+	// 	i++;
 	// }
-	int movetmp;
-	int	flag;
 	while (ft_list_length(b) > 0)
 	{
-		flag = 0;
+		i = 0;
 		mova = ft_create_mova_array(a, b, &prg);
 		movb = ft_create_movb_array(b);
 		migliore = do_best_move(b, mova, movb);
-		if (mova[migliore] < 0)
+		if (mova[migliore] >= 0 && movb[migliore] >= 0)
 		{
-			movetmp = mova[migliore];
-			while (movetmp < 0)
+			if (mova[migliore] > movb[migliore])
 			{
-				rra_rrb(a, 'a');
-				movetmp ++;
+				while (i < mova[migliore])
+				{
+					if (i < movb[migliore])
+						rab(a, b);
+					else
+						ra_rb(a, 'a');
+					i++;
+				}
 			}
-			flag = 1;
+			else
+			{
+				while (i < movb[migliore])
+				{
+					if (i < mova[migliore])
+						rab(a, b);
+					else
+						ra_rb(b, 'b');
+					i++;
+				}
+			}
 		}
-		else if (mova[migliore > 0])
+		else if (mova[migliore] >= 0 && movb[migliore] <= 0)
 		{
-			movetmp = mova[migliore];
-			while (movetmp > 0)
+			while (i < mova[migliore])
 			{
 				ra_rb(a, 'a');
-				movetmp --;
+				i++;
 			}
-			flag = 2;
-		}
-		mova[migliore] = 0;
-		if (movb[migliore] < 0)
-		{
-			movetmp = movb[migliore];
-			while (movetmp < 0)
+			i = 0;
+			while (i > movb[migliore])
 			{
 				rra_rrb(b, 'b');
-				movetmp ++;
+				i--;
 			}
 		}
-		else if (movb[migliore > 0])
+		else if (mova[migliore] <= 0 && movb[migliore] >= 0)
 		{
-			movetmp = movb[migliore];
-			while (movetmp > 0)
+			while (i > mova[migliore])
+			{
+				rra_rrb(a, 'a');
+				i--;
+			}
+			i = 0;
+			while (i < movb[migliore])
 			{
 				ra_rb(b, 'b');
-				movetmp --;
+				i++;
+			}
+		}
+		else if (mova[migliore] <= 0 && movb[migliore] <= 0)
+		{
+			if (mova[migliore] < movb[migliore])
+			{
+				while (i > mova[migliore])
+				{
+					if (i > movb[migliore])
+						rrab(a, b);
+					else
+						rra_rrb(a, 'a');
+					i--;
+				}
+			}
+			else
+			{
+				while (i > movb[migliore])
+				{
+					if (i > mova[migliore])
+						rrab(a, b);
+					else
+						rra_rrb(b, 'b');
+					i--;
+				}
 			}
 		}
 		pa_pb(&b, &a, 'a');
-		if (flag == 1)
-			rra_rrb(a, 'a');
-		if (flag == 2)
-			ra_rb(a, 'a');
+		if (a->nb > a->next->nb)
 		prg.max_nb_a = ft_find_max(a);
 		prg.min_nb_a = ft_find_min(a);
 	}
@@ -263,5 +343,5 @@ int	main(int argc, char **argv)
 	{
 		ra_rb(a, 'a');
 	}
-	// ft_print_list(a);
+	ft_print_list(a);
 }

@@ -1,0 +1,154 @@
+mova = 2, movb = 1
+mova = 0, movb = 0
+mova = 1, movb = 1
+mova = 2, movb = 0
+mova = 1, movb = 0
+mova = 1, movb = 0
+mova = 1, movb = 1
+mova = 1, movb = 1
+mova = 0, movb = 2
+mova = 1, movb = 0
+mova = 1, movb = 0
+mova = 1, movb = 0
+mova = 0, movb = 2
+mova = 1, movb = 2
+mova = 4, movb = -2
+mova = -1, movb = -6
+mova = -2, movb = -1
+mova = 0, movb = -2
+mova = 2, movb = -3
+mova = -3, movb = -4
+mova = 0, movb = -3
+mova = 2, movb = -1
+mova = -3, movb = -5
+mova = -4, movb = -4
+mova = 1, movb = 0
+mova = 1, movb = -3
+mova = -1, movb = -5
+mova = 2, movb = -3
+mova = 0, movb = -3
+mova = 3, movb = 0
+mova = 1, movb = -1
+mova = -6, movb = -5
+mova = 1, movb = 0
+mova = 0, movb = -1
+mova = 2, movb = -3
+mova = 0, movb = -4
+mova = 2, movb = 0
+mova = 0, movb = -1
+mova = -3, movb = -2
+mova = -3, movb = -2
+mova = 4, movb = -2
+mova = 7, movb = 1
+mova = 18, movb = 6
+mova = 1, movb = 0
+mova = 4, movb = 0
+mova = 1, movb = -2
+mova = 7, movb = 6
+mova = 2, movb = 1
+mova = 2, movb = 0
+mova = 0, movb = 1
+mova = 2, movb = 0
+mova = -2, movb = -2
+mova = 1, movb = 2
+mova = 2, movb = 3
+mova = 0, movb = 0
+mova = -6, movb = -3
+mova = 1, movb = 1
+mova = 1, movb = 1
+mova = 2, movb = 1
+mova = 1, movb = 0
+mova = 1, movb = 0
+mova = 0, movb = 2
+mova = 1, movb = 1
+mova = 1, movb = 1
+mova = 2, movb = 1
+mova = 1, movb = 0
+mova = 0, movb = 1
+mova = 2, movb = 0
+mova = -2, movb = -2
+mova = 1, movb = 2
+mova = -2, movb = 2
+mova = 0, movb = 0
+mova = -1, movb = -1
+mova = 0, movb = -1
+mova = -2, movb = -1
+mova = -33, movb = -1
+mova = -4, movb = -1
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia
+lista che sbaglia

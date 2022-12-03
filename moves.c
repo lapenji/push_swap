@@ -72,9 +72,16 @@ void	pa_pb(t_lista **a, t_lista **b, char c)
 		printf("pb\n");
 }
 
-void	rrab(t_lista *a, t_lista *b)
+void	rab(t_lista *a, t_lista *b)
 {
 	ra_rb(a, 0);
 	ra_rb(b, 0);
-	printf("rr");
+	printf("rr\n");
+}
+
+void	rrab(t_lista *a, t_lista *b)
+{
+	rra_rrb(a, 0);
+	rra_rrb(b, 0);
+	printf("rrr\n");
 }
