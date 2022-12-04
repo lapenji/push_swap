@@ -28,13 +28,9 @@ static void	ft_lis_finder_helper(t_lista *lista, t_prg *prg)
 
 void	ft_lis_finder(t_lista *lista, t_prg *prg)
 {
-	t_lista	*tmp;
-	int		count;
-	int		tmpnb;
 	int		i;
 
 	i = 0;
-	count = 1;
 	prg->max_count = 0;
 	while (i < ft_list_length(lista))
 	{

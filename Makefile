@@ -1,6 +1,6 @@
 #  |  |  ___ \    \  |         |
-#  |  |     ) |  |\/ |   _  |  |  /   _
-# ___ __|  __/   |   |  (   |    <    __/
+#  |  |     ) |  |\/ |   _  |  |  /   _ 
+# ___ __|  __/   |   |  (   |    <    __/ 
 #    _|  _____| _|  _| \__,_| _|\_\ \___|
 #                              by jcluzet
 ################################################################################
@@ -9,20 +9,24 @@
 
 NAME        := push_swap
 CC        := gcc
-FLAGS    := -Wall -Wextra -Werror
+FLAGS    := -Wall -Wextra -Werror 
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS        :=      list_utils.c \
+SRCS        :=      arrays.c \
+                          list_utils_2.c \
+                          list_utils.c \
+                          solvers_2.c \
+                          counters.c \
+                          init.c \
                           moves.c \
+                          conters_2.c \
                           push_swap.c \
-                          ft_atoi.c \
-						  various_utils.c \
-						  calcoli.c \
-						  utils_2.c \
-						  push_utils.c \
-
+                          lis_utils.c \
+                          various_utils.c \
+                          solvers.c \
+                          
 OBJS        := $(SRCS:.c=.o)
 
 .c.o:

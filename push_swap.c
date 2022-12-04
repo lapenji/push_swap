@@ -6,7 +6,6 @@ int	main(int argc, char **argv)
 	t_lista	*b_stack;
 	t_prg	prg;
 
-	int	i;
 	a_stack = NULL;
 	b_stack = NULL;
 	ft_populate_list(&a_stack, argc, argv);
