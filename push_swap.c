@@ -46,7 +46,7 @@ static void	ft_solve_more(int argc, char **argv)
 		ft_pusha_in_a(&a_stack, &b_stack, &prg);
 		prg.min_nb_a = ft_find_min(a_stack);
 		ft_order_lis(a_stack, prg.min_nb_a);
-		ft_print_list(a_stack);
+		//ft_print_list(a_stack);
 		//PROBLEMI CON I FREE
 		//ft_free_lists(a_stack, b_stack);
 		ft_free_arrays(prg.mova, prg.movb);
