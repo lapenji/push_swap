@@ -36,6 +36,8 @@ int		ft_atoi(const char *nptr);
 int		ft_find_min(t_lista *lista);
 int		ft_absolute(int nb);
 int		ft_is_number(char c);
+int		ft_is_the_smallest(int n, t_lista *lista);
+int		ft_is_list_ordered(t_lista	*lst);
 //stack utils
 void	ft_populate_list(t_lista **lst, int argc, char **argv);
 //lis utils
@@ -51,6 +53,9 @@ void	rrab(t_lista *a, t_lista *b);
 void	ft_pusha_in_b(t_lista **a, t_lista **b, t_prg *prg);
 void	ft_order_lis(t_lista *lista, int min);
 void	ft_pusha_in_a(t_lista **a, t_lista **b, t_prg *prg);
+void	ft_three_solver(t_lista *a);
+void	ft_push_in_b_five_n_solve(t_lista **a, t_lista **b);
+
 //contatori
 int		ft_doing_ra_lis(t_lista *lista, int nb);
 int		ft_doing_rra_lis(t_lista *lista, int nb);
@@ -66,6 +71,5 @@ int		ft_checkinput_nbrs(int argc, char **argv);
 void	ft_free_list(t_lista *lst);
 void	ft_free_lists(t_lista *a, t_lista *b);
 void	ft_free_arrays(int *mova, int *movb);
-
 
 #endif

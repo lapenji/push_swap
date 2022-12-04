@@ -52,3 +52,17 @@ int	ft_is_number(char c)
 		return (0);
 	return (1);
 }
+
+int	ft_is_list_ordered(t_lista	*lst)
+{
+	t_lista	*tmp;
+
+	tmp = lst;
+	while (tmp->next)
+	{
+		if (tmp->nb > tmp->next->nb)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}

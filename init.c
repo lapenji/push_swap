@@ -26,10 +26,9 @@ void	ft_populate_list(t_lista **lst, int argc, char **argv)
 		if (ft_check_for_doubles(*lst, tmp) == 1)
 		{
 			perror("numero doppio");
-			ft_free_list(*lst);
 			exit (EXIT_FAILURE);
 		}
-		ft_add_element(lst, ft_atoi(argv[i]));
+		ft_add_element(lst, tmp);
 		i++;
 	}
 }
@@ -43,6 +42,10 @@ int	ft_checkinput_nbrs(int argc, char **argv)
 	b = 1;
 	while (b < argc)
 	{
+		if (ft_is_number(argv[b][i]) == 0 && ft_is_number(argv[b][i] != '-'))
+			return (1);
+		else
+			i++;
 		while (argv[b][i])
 		{
 			if (ft_is_number(argv[b][i]) == 0)
