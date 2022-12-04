@@ -21,7 +21,7 @@ void	ft_order_lis(t_lista *lista, int min)
 {
 	if (ft_doing_ra_lis(lista, min) < ft_doing_rra_lis(lista, min))
 	{
-			while (lista->nb != min)
+		while (lista->nb != min)
 			ra_rb(lista, 'a');
 	}
 	else
@@ -31,4 +31,15 @@ void	ft_order_lis(t_lista *lista, int min)
 	}
 }
 
+void	sa_sb(t_lista *lista, char c)
+{
+	int	swap;
 
+	swap = lista->nb;
+	lista->nb = lista->next->nb;
+	lista->next->nb = swap;
+	if (c == 'a')
+		printf("sa\n");
+	else if (c == 'b')
+		printf("sb\n");
+}

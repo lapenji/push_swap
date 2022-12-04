@@ -6,6 +6,11 @@ int	main(int argc, char **argv)
 	t_lista	*b_stack;
 	t_prg	prg;
 
+	if (ft_checkinput_nbrs(argc, argv) == 1)
+	{
+		perror("un argomento non è un numero");
+		exit(EXIT_FAILURE);
+	}
 	a_stack = NULL;
 	b_stack = NULL;
 	ft_populate_list(&a_stack, argc, argv);
@@ -16,4 +21,6 @@ int	main(int argc, char **argv)
 	prg.min_nb_a = ft_find_min(a_stack);
 	ft_order_lis(a_stack, prg.min_nb_a);
 	ft_print_list(a_stack);
+	ft_free_lists(a_stack, b_stack);
+	ft_free_arrays(prg.mova, prg.movb);
 }

@@ -45,3 +45,10 @@ int	ft_absolute(int nb)
 		nb *= -1;
 	return (nb);
 }
+
+int	ft_is_number(char c)
+{
+	if (c < '0' || c > '9')
+		return (0);
+	return (1);
+}

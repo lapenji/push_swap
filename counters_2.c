@@ -15,7 +15,7 @@ static int	ft_find_value(t_prg *prg, int i)
 		return (ft_absolute(prg->mova[i]) + prg->movb[i]);
 	else
 	{
-		if(prg->mova[i] < prg->movb[i])
+		if (prg->mova[i] < prg->movb[i])
 			return (ft_absolute(prg->mova[i]));
 		else
 			return (ft_absolute(prg->movb[i]));
@@ -26,7 +26,7 @@ int	ft_find_best_move(t_lista *b, t_prg *prg)
 {
 	int	i;
 	int	x;
-	int best;
+	int	best;
 	int	besti;
 	int	tmp;
 
@@ -44,5 +44,5 @@ int	ft_find_best_move(t_lista *b, t_prg *prg)
 		}
 		i++;
 	}
-	return(besti);
+	return (besti);
 }

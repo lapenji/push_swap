@@ -1,18 +1,5 @@
 #include "push_swap.h"
 
-void	sa_sb(t_lista *lista, char c)
-{
-	int	swap;
-
-	swap = lista->nb;
-	lista->nb = lista->next->nb;
-	lista->next->nb = swap;
-	if (c == 'a')
-		printf("sa\n");
-	else if (c == 'b')
-		printf("sb\n");
-}
-
 void	ra_rb(t_lista *lista, char c)
 {
 	while (lista->next)
@@ -48,6 +35,7 @@ void	rra_rrb(t_lista	*lista, char c)
 void	pa_pb(t_lista **a, t_lista **b, char c)
 {
 	int	tmp;
+
 	tmp = (*a)->nb;
 	ft_add_element_to_start(b, tmp);
 	ft_remove_first(a);

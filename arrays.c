@@ -5,7 +5,7 @@ int	*ft_create_mova_array(t_lista *a, t_lista *b, t_prg *prg)
 	int	*res;
 	int	i;
 	int	ra;
-	int rra;
+	int	rra;
 
 	i = 0;
 	res = (int *)malloc(sizeof(int) * ft_list_length(b));

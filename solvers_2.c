@@ -2,7 +2,7 @@
 
 static void	ft_solve_pos_pos(t_lista *a, t_lista *b, t_prg *prg, int migliore)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (prg->mova[migliore] > prg->movb[migliore])
@@ -65,7 +65,7 @@ static void	ft_solve_neg_pos(t_lista *a, t_lista *b, t_prg *prg, int migliore)
 	}
 }
 
-static void ft_solve_neg_neg(t_lista *a, t_lista *b, t_prg *prg, int migliore)
+static void	ft_solve_neg_neg(t_lista *a, t_lista *b, t_prg *prg, int migliore)
 {
 	int	i;
 

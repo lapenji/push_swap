@@ -11,7 +11,8 @@ void	ft_remove_first(t_lista **lista)
 		(*lista)->prev = NULL;
 		free (tmp);
 	}
-	else (*lista) = NULL;
+	else
+	(*lista) = NULL;
 }
 
 t_lista	*ft_list_last(t_lista *lst)

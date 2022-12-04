@@ -3,17 +3,18 @@
 static t_lista	*create_elem(int n)
 {
 	t_lista	*elem;
+
 	elem = (t_lista *)malloc(sizeof(t_lista));
 	elem->nb = n;
 	elem->next = NULL;
 	elem->prev = NULL;
-	return(elem);
+	return (elem);
 }
 
 void	ft_add_element(t_lista **lista, int n)
 {
 	t_lista	*new;
-	t_lista *tmp;
+	t_lista	*tmp;
 
 	tmp = *lista;
 	if (!*lista)
@@ -30,7 +31,7 @@ void	ft_add_element(t_lista **lista, int n)
 
 void	ft_print_list(t_lista *lista)
 {
-	while(lista)
+	while (lista)
 	{
 		printf("%d\n", lista->nb);
 		lista = lista->next;

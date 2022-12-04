@@ -3,7 +3,7 @@
 static int	ft_find_best_minimum_ra(t_lista *a, t_prg *prg)
 {
 	int	res;
-	int i;
+	int	i;
 
 	res = 0;
 	while (a->nb != prg->min_nb_a)

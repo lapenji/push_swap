@@ -61,8 +61,8 @@ int	ft_doing_ra_lis(t_lista *lista, int nb)
 
 int	ft_doing_rra_lis(t_lista *lista, int nb)
 {
-	int	i;
-	int	b;
+	int		i;
+	int		b;
 	t_lista	*tmp;
 
 	i = 0;
