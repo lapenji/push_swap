@@ -3,19 +3,12 @@
 static int	ft_find_best_minimum_ra(t_lista *a, t_prg *prg)
 {
 	int	res;
-	int	i;
 
 	res = 0;
-	while (a->nb != prg->min_nb_a)
+	while (a->nb != prg->min_nb_a && a)
 	{
 		res++;
-		ra_rb(a, 0);
-	}
-	i = res;
-	while (i > 0)
-	{
-		rra_rrb(a, 0);
-		i--;
+		a = a->next;
 	}
 	return (res);
 }
@@ -23,21 +16,15 @@ static int	ft_find_best_minimum_ra(t_lista *a, t_prg *prg)
 static int	ft_find_best_minimum_rra(t_lista *a, t_prg *prg)
 {
 	int	res;
-	int	i;
 
 	res = 0;
-	while (a->nb != prg->min_nb_a)
+	a = ft_list_last(a);
+	while (a->nb != prg->min_nb_a && a)
 	{
 		res++;
-		rra_rrb(a, 0);
+		a = a->prev;
 	}
-	i = res;
-	while (i > 0)
-	{
-		ra_rb(a, 0);
-		i--;
-	}
-	return (res);
+	return (res + 1);
 }
 
 int	ft_find_best_move_ra(t_lista *a, int target, t_prg *prg)
