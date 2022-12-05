@@ -22,7 +22,7 @@ static int	ft_find_value(t_prg *prg, int i)
 	}
 }
 
-int	ft_find_best_move(t_lista *b, t_prg *prg)
+int	ft_find_best_move(t_lista **b, t_prg *prg)
 {
 	int	i;
 	int	x;
@@ -33,7 +33,7 @@ int	ft_find_best_move(t_lista *b, t_prg *prg)
 	besti = 0;
 	i = 0;
 	best = ft_find_value(prg, i);
-	x = ft_list_length(b);
+	x = ft_list_length(*b);
 	while (i < x)
 	{
 		tmp = ft_find_value(prg, i);

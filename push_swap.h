@@ -31,6 +31,7 @@ int		ft_list_length(t_lista *lista);
 void	ft_add_element_to_start(t_lista **lista, int nb);
 void	ft_remove_first(t_lista **lista);
 t_lista	*ft_list_last(t_lista *lst);
+void	ft_remove_last(t_lista **lista);
 //utility varie
 int		ft_atoi(const char *nptr);
 int		ft_find_min(t_lista *lista);
@@ -44,27 +45,27 @@ void	ft_populate_list(t_lista **lst, int argc, char **argv);
 void	ft_lis_finder(t_lista *lista, t_prg *prg);
 //mosse
 void	sa_sb(t_lista *lista, char c);
-void	ra_rb(t_lista *lista, char c);
-void	rra_rrb(t_lista	*lista, char c);
+void	ra_rb(t_lista **lista, char c);
+void	rra_rrb(t_lista	**lista, char c);
 void	pa_pb(t_lista **a, t_lista **b, char c);
-void	rab(t_lista *a, t_lista *b);
-void	rrab(t_lista *a, t_lista *b);
+void	rab(t_lista **a, t_lista **b);
+void	rrab(t_lista **a, t_lista **b);
 //solutori
 void	ft_pusha_in_b(t_lista **a, t_lista **b, t_prg *prg);
-void	ft_order_lis(t_lista *lista, int min);
+void	ft_order_lis(t_lista **lista, int min);
 void	ft_pusha_in_a(t_lista **a, t_lista **b, t_prg *prg);
-void	ft_three_solver(t_lista *a);
+void	ft_three_solver(t_lista **a);
 void	ft_push_in_b_five_n_solve(t_lista **a, t_lista **b);
 
 //contatori
 int		ft_doing_ra_lis(t_lista *lista, int nb);
 int		ft_doing_rra_lis(t_lista *lista, int nb);
-int		ft_find_best_move_rra(t_lista *a, int target, t_prg *prg);
-int		ft_find_best_move_ra(t_lista *a, int target, t_prg *prg);
-int		ft_find_best_move(t_lista *b, t_prg *prg);
+int		ft_find_best_move_rra(t_lista **a, int target, t_prg *prg);
+int		ft_find_best_move_ra(t_lista **a, int target, t_prg *prg);
+int		ft_find_best_move(t_lista **b, t_prg *prg);
 //array
-int		*ft_create_mova_array(t_lista *a, t_lista *b, t_prg *prg);
-int		*ft_create_movb_array(t_lista *lista);
+int		*ft_create_mova_array(t_lista **a, t_lista **b, t_prg *prg);
+int		*ft_create_movb_array(t_lista **lista);
 //error check
 int		ft_checkinput_nbrs(int argc, char **argv);
 //frees

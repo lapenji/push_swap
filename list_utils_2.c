@@ -23,3 +23,23 @@ t_lista	*ft_list_last(t_lista *lst)
 		lst = lst->next;
 	return (lst);
 }
+
+void	ft_remove_last(t_lista **lista)
+{
+	t_lista	*tmp;
+	t_lista	*tmp2;
+
+	tmp = *lista;
+	while ((*lista)->next)
+		*lista = (*lista)->next;
+	if ((*lista)->prev)
+	{
+		tmp2 = *lista;
+		*lista = (*lista)->prev;
+		(*lista)->next = NULL;
+		free (tmp2);
+	}
+	else
+		(*lista) = NULL;
+	*lista = tmp;
+}

@@ -23,7 +23,6 @@ static void	ft_lis_finder_helper(t_lista *lista, t_prg *prg)
 		prg->max_count = count;
 		prg->best_lis = lista->nb;
 	}
-	ra_rb(lista, 0);
 }
 
 void	ft_lis_finder(t_lista *lista, t_prg *prg)
@@ -42,41 +41,31 @@ void	ft_lis_finder(t_lista *lista, t_prg *prg)
 int	ft_doing_ra_lis(t_lista *lista, int nb)
 {
 	int	i;
-	int	b;
 
 	i = 0;
-	while (lista->nb != nb)
+	while (lista->nb != nb && lista->next)
 	{
-		ra_rb(lista, 0);
+		lista = lista->next;
 		i++;
 	}
-	b = i;
-	while (i > 0)
-	{
-		rra_rrb(lista, 0);
-		i--;
-	}
-	return (b);
+	if (lista->nb == nb)
+		return (i);
+	else
+		return (99999);
 }
 
 int	ft_doing_rra_lis(t_lista *lista, int nb)
 {
-	int		i;
-	int		b;
-	t_lista	*tmp;
+	int	i;
 
 	i = 0;
-	tmp = lista;
-	while (tmp->nb != nb)
+	while (lista->nb != nb && lista->prev)
 	{
-		rra_rrb(lista, 0);
+		lista = lista->prev;
 		i++;
 	}
-	b = i;
-	while (i > 0)
-	{
-		ra_rb(lista, 0);
-		i--;
-	}
-	return (b);
+	if (lista->nb == nb)
+		return (i);
+	else
+		return (99999);
 }
