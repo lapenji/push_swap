@@ -21,7 +21,6 @@ SRCS        :=      arrays.c \
                           counters.c \
                           init.c \
                           moves.c \
-                          counters_2.c \
                           push_swap.c \
                           lis_utils.c \
                           various_utils.c \
