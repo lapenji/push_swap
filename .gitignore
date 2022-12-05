@@ -2,3 +2,4 @@ push_swap_visualizer/
 push_swap_tester/
 checker
 .DS_Store
+*.o

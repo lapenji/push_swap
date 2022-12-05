@@ -10,7 +10,7 @@
 
 typedef struct s_lista
 {
-	int	nb;
+	int				nb;
 	struct s_lista	*next;
 	struct s_lista	*prev;
 }	t_lista;
@@ -60,7 +60,6 @@ void	ft_push_in_b_five_n_solve(t_lista **a, t_lista **b);
 //contatori
 int		ft_doing_ra_lis(t_lista *lista, int nb);
 int		ft_doing_rra_lis(t_lista *lista, int nb);
-int		ft_find_best_move_rra(t_lista **a, int target, t_prg *prg);
 int		ft_find_best_move_ra(t_lista **a, int target, t_prg *prg);
 int		ft_find_best_move(t_lista **b, t_prg *prg);
 //array

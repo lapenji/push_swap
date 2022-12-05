@@ -2,8 +2,8 @@
 
 int	*ft_create_mova_array(t_lista **a, t_lista **b, t_prg *prg)
 {
-	int	*res;
-	int	i;
+	int		*res;
+	int		i;
 	t_lista	*tmplist;
 
 	i = 0;
@@ -21,9 +21,9 @@ int	*ft_create_mova_array(t_lista **a, t_lista **b, t_prg *prg)
 
 int	*ft_create_movb_array(t_lista **lista)
 {
-	int	*res;
-	int	i;
-	int	tmplen;
+	int		*res;
+	int		i;
+	int		tmplen;
 	t_lista	*tmplist;
 
 	tmplist = *lista;

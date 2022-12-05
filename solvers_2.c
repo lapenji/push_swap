@@ -103,11 +103,6 @@ void	ft_pusha_in_a(t_lista **a, t_lista **b, t_prg *prg)
 		prg->mova = ft_create_mova_array(a, b, prg);
 		prg->movb = ft_create_movb_array(b);
 		migliore = ft_find_best_move(b, prg);
-		//printf("best move = mova %d movb %d, lo zero invece %d, %d\n", prg->mova[migliore], prg->movb[migliore], prg->mova[0], prg->movb[0]);
-		//printf("\n-------A-------\n");
-		//ft_print_list(*a);
-		//printf("\n-------B-------\n");
-		//ft_print_list(*b);
 		if (prg->mova[migliore] >= 0 && prg->movb[migliore] >= 0)
 			ft_solve_pos_pos(a, b, prg, migliore);
 		else if (prg->mova[migliore] >= 0 && prg->movb[migliore] <= 0)

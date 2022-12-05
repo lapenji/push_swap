@@ -2,7 +2,7 @@
 
 void	ra_rb(t_lista **lista, char c)
 {
-	int	tmp;
+	int		tmp;
 	t_lista	*temphead;
 
 	temphead = (*lista)->next;
