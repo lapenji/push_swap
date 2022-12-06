@@ -1,10 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/06 11:34:46 by ltombell          #+#    #+#             */
+/*   Updated: 2022/12/06 18:52:10 by ltombell         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-//includes ricordati di cambiare printf
-
 # include <stdlib.h>
-# include <stdio.h>
+# include <unistd.h>
 
 //struct
 
@@ -58,8 +68,8 @@ void	ft_three_solver(t_lista **a);
 void	ft_push_in_b_five_n_solve(t_lista **a, t_lista **b);
 
 //contatori
-int		ft_doing_ra_lis(t_lista *lista, int nb);
-int		ft_doing_rra_lis(t_lista *lista, int nb);
+int		ft_doing_ra_counter(t_lista *lista, int nb);
+int		ft_doing_rra_counter(t_lista *lista, int nb);
 int		ft_find_best_move_ra(t_lista **a, int target, t_prg *prg);
 int		ft_find_best_move(t_lista **b, t_prg *prg);
 //array
@@ -70,6 +80,5 @@ int		ft_checkinput_nbrs(int argc, char **argv);
 //frees
 void	ft_free_list(t_lista *lst);
 void	ft_free_lists(t_lista *a, t_lista *b);
-void	ft_free_arrays(int *mova, int *movb);
 
 #endif

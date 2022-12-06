@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   solvers.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/06 11:34:06 by ltombell          #+#    #+#             */
+/*   Updated: 2022/12/06 18:35:42 by ltombell         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_push_in_b_five_n_solve(t_lista **a, t_lista **b)
@@ -11,7 +23,8 @@ void	ft_push_in_b_five_n_solve(t_lista **a, t_lista **b)
 			tmp = ft_find_min(*a);
 			while ((*a)->nb != tmp)
 			{
-				if (ft_doing_ra_lis(*a, tmp) < ft_doing_rra_lis(*a, tmp))
+				if (ft_doing_ra_counter(*a, tmp)
+					< ft_doing_rra_counter(*a, tmp))
 				{
 					while ((*a)->nb != tmp)
 						ra_rb(a, 'a');
@@ -47,7 +60,7 @@ void	ft_pusha_in_b(t_lista **a, t_lista **b, t_prg *prg)
 
 void	ft_order_lis(t_lista **lista, int min)
 {
-	if (ft_doing_ra_lis(*lista, min) < ft_doing_rra_lis(*lista, min))
+	if (ft_doing_ra_counter(*lista, min) < ft_doing_rra_counter(*lista, min))
 	{
 		while ((*lista)->nb != min)
 			ra_rb(lista, 'a');
@@ -92,7 +105,7 @@ void	sa_sb(t_lista *lista, char c)
 	lista->nb = lista->next->nb;
 	lista->next->nb = swap;
 	if (c == 'a')
-		printf("sa\n");
+		write(1, "sa\n", 3);
 	else if (c == 'b')
-		printf("sb\n");
+		write(1, "sb\n", 3);
 }

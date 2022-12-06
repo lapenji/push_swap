@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   solvers_2.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/06 11:34:54 by ltombell          #+#    #+#             */
+/*   Updated: 2022/12/06 17:39:03 by ltombell         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	ft_solve_pos_pos(t_lista **a, t_lista **b, t_prg *prg, int migliore)
@@ -112,5 +124,7 @@ void	ft_pusha_in_a(t_lista **a, t_lista **b, t_prg *prg)
 		else if (prg->mova[migliore] <= 0 && prg->movb[migliore] <= 0)
 			ft_solve_neg_neg(a, b, prg, migliore);
 		pa_pb(b, a, 'a');
+		free(prg->mova);
+		free(prg->movb);
 	}
 }

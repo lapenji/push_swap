@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_utils_2.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/06 11:34:17 by ltombell          #+#    #+#             */
+/*   Updated: 2022/12/06 11:36:02 by ltombell         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_remove_first(t_lista **lista)
@@ -12,7 +24,7 @@ void	ft_remove_first(t_lista **lista)
 		free (tmp);
 	}
 	else
-	(*lista) = NULL;
+		(*lista) = NULL;
 }
 
 t_lista	*ft_list_last(t_lista *lst)

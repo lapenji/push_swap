@@ -1,4 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/06 11:34:35 by ltombell          #+#    #+#             */
+/*   Updated: 2022/12/06 18:51:42 by ltombell         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
+
+static void	ft_solve_two(t_lista *a_stack)
+{
+	if (a_stack->nb != ft_find_min(a_stack))
+		ra_rb(&a_stack, 'a');
+	ft_free_list(a_stack);
+}
 
 static void	ft_solve_less(int argc, char **argv)
 {
@@ -10,14 +29,11 @@ static void	ft_solve_less(int argc, char **argv)
 	b_stack = NULL;
 	ft_populate_list(&a_stack, argc, argv);
 	if (argc == 3)
-	{
-		if (a_stack->nb != ft_find_min(a_stack))
-			ra_rb(&a_stack, 'a');
-	}
+		ft_solve_two(a_stack);
 	else if (argc == 4)
 	{
 		ft_three_solver(&a_stack);
-		free(a_stack);
+		ft_free_list(a_stack);
 	}
 	else
 	{
@@ -26,6 +42,7 @@ static void	ft_solve_less(int argc, char **argv)
 			pa_pb(&b_stack, &a_stack, 'a');
 		prg.min_nb_a = ft_find_min(a_stack);
 		ft_order_lis(&a_stack, prg.min_nb_a);
+		ft_free_list(a_stack);
 	}
 }
 
@@ -46,10 +63,7 @@ static void	ft_solve_more(int argc, char **argv)
 		ft_pusha_in_a(&a_stack, &b_stack, &prg);
 		prg.min_nb_a = ft_find_min(a_stack);
 		ft_order_lis(&a_stack, prg.min_nb_a);
-		// ft_print_list(a_stack);
-		//PROBLEMI CON I FREE
-		//ft_free_lists(a_stack, b_stack);
-		//ft_free_arrays(prg.mova, prg.movb);
+		ft_free_list(a_stack);
 	}
 }
 
@@ -59,8 +73,8 @@ int	main(int argc, char **argv)
 	{
 		if (ft_checkinput_nbrs(argc, argv) == 1)
 		{
-			perror("un argomento non è un numero");
-			exit(EXIT_FAILURE);
+			write(2, "Error\n", 7);
+			exit(-1);
 		}
 		else if (argc <= 11 && argc > 2)
 			ft_solve_less(argc, argv);
@@ -68,5 +82,5 @@ int	main(int argc, char **argv)
 			ft_solve_more(argc, argv);
 	}
 	else
-		printf("\n");
+		write(1, "\n", 1);
 }

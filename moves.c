@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moves.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/06 11:34:30 by ltombell          #+#    #+#             */
+/*   Updated: 2022/12/06 18:40:47 by ltombell         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ra_rb(t_lista **lista, char c)
@@ -11,22 +23,24 @@ void	ra_rb(t_lista **lista, char c)
 	ft_remove_first(lista);
 	*lista = temphead;
 	if (c == 'a')
-		printf("ra\n");
+		write(1, "ra\n", 3);
 	else if (c == 'b')
-		printf("rb\n");
+		write(1, "rb\n", 3);
 }
 
 void	rra_rrb(t_lista	**lista, char c)
 {
 	int	tmp;
 
+	if (c == 'b' && ft_list_length(*lista) == 1)
+		return ;
 	tmp = ft_list_last(*lista)->nb;
 	ft_add_element_to_start(lista, tmp);
 	ft_remove_last(lista);
 	if (c == 'a')
-		printf("rra\n");
+		write(1, "rra\n", 4);
 	else if (c == 'b')
-		printf("rrb\n");
+		write(1, "rrb\n", 4);
 }
 
 void	pa_pb(t_lista **a, t_lista **b, char c)
@@ -37,21 +51,21 @@ void	pa_pb(t_lista **a, t_lista **b, char c)
 	ft_add_element_to_start(b, tmp);
 	ft_remove_first(a);
 	if (c == 'a')
-		printf("pa\n");
+		write(1, "pa\n", 3);
 	else if (c == 'b')
-		printf("pb\n");
+		write(1, "pb\n", 3);
 }
 
 void	rab(t_lista **a, t_lista **b)
 {
 	ra_rb(a, 0);
 	ra_rb(b, 0);
-	printf("rr\n");
+	write(1, "rr\n", 3);
 }
 
 void	rrab(t_lista **a, t_lista **b)
 {
 	rra_rrb(a, 0);
 	rra_rrb(b, 0);
-	printf("rrr\n");
+	write(1, "rrr\n", 4);
 }

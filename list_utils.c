@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/06 11:34:23 by ltombell          #+#    #+#             */
+/*   Updated: 2022/12/06 18:52:58 by ltombell         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static t_lista	*create_elem(int n)
@@ -16,25 +28,16 @@ void	ft_add_element(t_lista **lista, int n)
 	t_lista	*new;
 	t_lista	*tmp;
 
-	tmp = *lista;
 	if (!*lista)
 		*lista = create_elem(n);
 	else
 	{
+		tmp = *lista;
 		while (tmp->next)
-		tmp = tmp->next;
+			tmp = tmp->next;
 		new = create_elem(n);
 		tmp->next = new;
 		new->prev = tmp;
-	}
-}
-
-void	ft_print_list(t_lista *lista)
-{
-	while (lista)
-	{
-		printf("%d\n", lista->nb);
-		lista = lista->next;
 	}
 }
 

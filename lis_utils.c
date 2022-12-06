@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lis_utils.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/06 11:33:24 by ltombell          #+#    #+#             */
+/*   Updated: 2022/12/06 18:40:28 by ltombell         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	ft_lis_finder_helper(t_lista *lista, t_prg *prg)
@@ -38,9 +50,9 @@ void	ft_lis_finder(t_lista *lista, t_prg *prg)
 	}
 }
 
-int	ft_doing_ra_lis(t_lista *lista, int nb)
+int	ft_doing_ra_counter(t_lista *lista, int nb)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	while (lista->nb != nb && lista->next)
@@ -51,13 +63,15 @@ int	ft_doing_ra_lis(t_lista *lista, int nb)
 	if (lista->nb == nb)
 		return (i);
 	else
-		return (99999);
+		return (9999);
 }
 
-int	ft_doing_rra_lis(t_lista *lista, int nb)
+int	ft_doing_rra_counter(t_lista *lista, int nb)
 {
-	int	i;
+	int		i;
+	t_lista	*tmp;
 
+	tmp = ft_list_last(lista);
 	i = 0;
 	while (lista->nb != nb && lista->prev)
 	{
@@ -65,7 +79,12 @@ int	ft_doing_rra_lis(t_lista *lista, int nb)
 		i++;
 	}
 	if (lista->nb == nb)
+	{
 		return (i);
+	}
 	else
-		return (99999);
+	{
+		i += ft_doing_rra_counter(tmp, nb) + 1;
+		return (i);
+	}
 }

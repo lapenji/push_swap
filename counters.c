@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   counters.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/06 11:33:45 by ltombell          #+#    #+#             */
+/*   Updated: 2022/12/06 16:25:51 by ltombell         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	ft_find_value(t_prg *prg, int i)
@@ -77,8 +89,8 @@ int	ft_find_best_move_ra(t_lista **a, int target, t_prg *prg)
 		return (0);
 	else if (target < prg->min_nb_a)
 	{
-		rra = ft_doing_rra_lis(*a, prg->min_nb_a);
-		ra = ft_doing_ra_lis(*a, prg->min_nb_a);
+		rra = ft_doing_rra_counter(*a, prg->min_nb_a);
+		ra = ft_doing_ra_counter(*a, prg->min_nb_a);
 		if (ra <= rra)
 			res = ra;
 		else
