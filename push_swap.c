@@ -6,7 +6,7 @@
 /*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:34:35 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/06 18:51:42 by ltombell         ###   ########.fr       */
+/*   Updated: 2022/12/07 19:07:40 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ static void	ft_solve_more(int argc, char **argv)
 		ft_order_lis(&a_stack, prg.best_lis);
 		ft_pusha_in_b(&a_stack, &b_stack, &prg);
 		ft_pusha_in_a(&a_stack, &b_stack, &prg);
+		ft_free_list(b_stack);
 		prg.min_nb_a = ft_find_min(a_stack);
 		ft_order_lis(&a_stack, prg.min_nb_a);
 		ft_free_list(a_stack);

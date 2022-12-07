@@ -1,32 +1,27 @@
 #  |  |  ___ \    \  |         |
-#  |  |     ) |  |\/ |   _  |  |  /   _
-# ___ __|  __/   |   |  (   |    <    __/
+#  |  |     ) |  |\/ |   _  |  |  /   _ 
+# ___ __|  __/   |   |  (   |    <    __/ 
 #    _|  _____| _|  _| \__,_| _|\_\ \___|
 #                              by jcluzet
 ################################################################################
 #                                     CONFIG                                   #
 ################################################################################
 
-NAME        := push_swap
+NAME        := checker
 CC        := gcc
-FLAGS    := -Wall -Wextra -Werror -g
+FLAGS    := -Wall -Wextra -Werror 
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS        :=      arrays.c \
-                          list_utils_2.c \
+SRCS        :=      get_next_line.c \
+                          checker_moves.c \
                           list_utils.c \
-                          solvers_2.c \
-                          counters.c \
-                          init.c \
-                          moves.c \
-                          push_swap.c \
-                          lis_utils.c \
-                          various_utils.c \
-                          solvers.c \
-                          free_and_errors.c \
-
+                          get_next_line_utils.c \
+                          checker.c \
+                          checker_utils.c \
+                          list_utils_2.c \
+                          
 OBJS        := $(SRCS:.c=.o)
 
 .c.o:

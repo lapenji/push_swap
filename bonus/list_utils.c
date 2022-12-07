@@ -6,11 +6,11 @@
 /*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:34:23 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/07 19:08:52 by ltombell         ###   ########.fr       */
+/*   Updated: 2022/12/07 14:48:22 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 static t_lista	*create_elem(int n)
 {

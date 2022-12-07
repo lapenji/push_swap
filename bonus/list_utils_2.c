@@ -6,11 +6,11 @@
 /*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:34:17 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/07 18:57:34 by ltombell         ###   ########.fr       */
+/*   Updated: 2022/12/07 18:57:00 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	ft_remove_first(t_lista **lista)
 {
