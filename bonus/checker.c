@@ -135,9 +135,9 @@ void	ft_execute_move(t_lista **a_stack, t_lista **b_stack, char *line)
 
 int	main(int argc, char **argv)
 {
-	int	fd;
+	// int	fd;
 
-	fd = open("moves.txt", O_RDONLY);
+	// fd = open("moves.txt", O_RDONLY);
 
 	char	*line;
 	t_lista	*a_stack;
@@ -147,15 +147,15 @@ int	main(int argc, char **argv)
 	b_stack = NULL;
 
 	ft_populate_list(&a_stack, argc, argv);
-	line = get_next_line(fd);
+	line = get_next_line(0);
 	ft_execute_move(&a_stack, &b_stack, line);
 	while (line != NULL)
 	{
-		line = get_next_line(fd);
+		line = get_next_line(0);
 		ft_execute_move(&a_stack, &b_stack, line);
 	}
 	if (ft_is_list_ordered(a_stack) == 0)
-		printf("lista non ordinata, vergognati\n");
+		printf("KO\n");
 	else
-		printf("great success\n");
+		printf("OK\n");
 }

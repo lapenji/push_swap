@@ -3,21 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   lis_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lapenji <lapenji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:33:24 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/07 16:18:16 by ltombell         ###   ########.fr       */
+/*   Updated: 2022/12/08 18:12:08 by lapenji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_lis_finder_helper(t_lista *lista, t_prg *prg)
+void	ft_lis_finder(t_lista *lista, t_prg *prg)
 {
 	t_lista	*tmp;
 	int		tmpnb;
 	int		count;
 
+	prg->max_count = 0;
 	tmp = lista;
 	count = 1;
 	tmpnb = tmp->nb;
@@ -34,19 +35,6 @@ static void	ft_lis_finder_helper(t_lista *lista, t_prg *prg)
 	{
 		prg->max_count = count;
 		prg->best_lis = lista->nb;
-	}
-}
-
-void	ft_lis_finder(t_lista *lista, t_prg *prg)
-{
-	int		i;
-
-	i = 0;
-	prg->max_count = 0;
-	while (i < ft_list_length(lista))
-	{
-		ft_lis_finder_helper(lista, prg);
-		i++;
 	}
 }
 

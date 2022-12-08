@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lapenji <lapenji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:34:35 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/07 19:07:40 by ltombell         ###   ########.fr       */
+/*   Updated: 2022/12/08 18:13:13 by lapenji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ static void	ft_solve_more(int argc, char **argv)
 	if (ft_is_list_ordered(a_stack) == 0)
 	{
 		ft_lis_finder(a_stack, &prg);
-		ft_order_lis(&a_stack, prg.best_lis);
 		ft_pusha_in_b(&a_stack, &b_stack, &prg);
 		ft_pusha_in_a(&a_stack, &b_stack, &prg);
 		ft_free_list(b_stack);

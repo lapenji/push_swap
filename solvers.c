@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solvers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lapenji <lapenji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:34:06 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/07 17:10:52 by ltombell         ###   ########.fr       */
+/*   Updated: 2022/12/08 17:10:46 by lapenji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_push_in_b_five_n_solve(t_lista **a, t_lista **b)
 		ft_three_solver(a);
 	}
 }
-#include <stdio.h>
+
 void	ft_pusha_in_b(t_lista **a, t_lista **b, t_prg *prg)
 {
 	int	tmpmin;
