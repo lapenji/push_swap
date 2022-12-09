@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lapenji <lapenji@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:34:35 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/08 18:13:13 by lapenji          ###   ########.fr       */
+/*   Updated: 2022/12/09 17:45:46 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ static void	ft_solve_more(int argc, char **argv)
 		ft_pusha_in_b(&a_stack, &b_stack, &prg);
 		ft_pusha_in_a(&a_stack, &b_stack, &prg);
 		ft_free_list(b_stack);
+		free(b_stack);
 		prg.min_nb_a = ft_find_min(a_stack);
 		ft_order_lis(&a_stack, prg.min_nb_a);
 		ft_free_list(a_stack);
@@ -69,6 +70,8 @@ static void	ft_solve_more(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
+	long	tmp;
+
 	if (argc > 1)
 	{
 		if (ft_checkinput_nbrs(argc, argv) == 1)
@@ -76,9 +79,15 @@ int	main(int argc, char **argv)
 			write(2, "Error\n", 7);
 			exit(-1);
 		}
+		tmp = ft_atoi(argv[1]);
+		if (tmp < -2147483648 || tmp > 2147483647)
+		{
+			write(2, "Error\n", 7);
+			exit(-1);
+		}
 		else if (argc <= 11 && argc > 2)
 			ft_solve_less(argc, argv);
-		else if (argc > 2)
+		else if (argc > 11)
 			ft_solve_more(argc, argv);
 	}
 	else

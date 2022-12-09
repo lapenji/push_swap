@@ -6,16 +6,16 @@
 /*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:33:59 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/06 11:34:57 by ltombell         ###   ########.fr       */
+/*   Updated: 2022/12/09 16:57:19 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
 	int	i;
-	int	result;
+	long	result;
 	int	sign;
 
 	i = 0;

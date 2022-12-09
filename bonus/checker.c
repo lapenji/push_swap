@@ -1,6 +1,19 @@
 #include "checker.h"
 #include <stdio.h>
 
+void	ft_free_list(t_lista *lst)
+{
+	t_lista	*tmp;
+
+	while (lst)
+	{
+		tmp = lst;
+		lst = lst->next;
+		free(tmp);
+	}
+}
+
+
 int	ft_is_list_ordered(t_lista	*lst)
 {
 	t_lista	*tmp;
@@ -43,10 +56,10 @@ static int	ft_check_for_doubles(t_lista *list, int nb)
 	return (0);
 }
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
 	int	i;
-	int	result;
+	long	result;
 	int	sign;
 
 	i = 0;
@@ -71,12 +84,17 @@ int	ft_atoi(const char *nptr)
 void	ft_populate_list(t_lista **lst, int argc, char **argv)
 {
 	int	i;
-	int	tmp;
+	long	tmp;
 
 	i = 1;
 	while (i < argc)
 	{
 		tmp = ft_atoi(argv[i]);
+		if (tmp < -2147483648 || tmp > 2147483647)
+		{
+			write(2, "Error\n", 7);
+			exit(-1);
+		}
 		if (ft_check_for_doubles(*lst, tmp) == 1)
 		{
 			write(2, "Error\n", 7);
@@ -129,33 +147,49 @@ void	ft_execute_move(t_lista **a_stack, t_lista **b_stack, char *line)
 		ft_do_rr(a_stack, b_stack);
 	else
 	{
-		write(2, "Error:\n wrong parameter", 23);
+		write(2, "Error:\nmove does not exist\n", 28);
+		exit(-1);
 	}
+	free(line);
 }
 
 int	main(int argc, char **argv)
 {
-	// int	fd;
-
-	// fd = open("moves.txt", O_RDONLY);
-
 	char	*line;
 	t_lista	*a_stack;
 	t_lista	*b_stack;
+	long	tmp;
 
 	a_stack = NULL;
 	b_stack = NULL;
-
-	ft_populate_list(&a_stack, argc, argv);
-	line = get_next_line(0);
-	ft_execute_move(&a_stack, &b_stack, line);
-	while (line != NULL)
+	if (argc > 1)
 	{
-		line = get_next_line(0);
-		ft_execute_move(&a_stack, &b_stack, line);
+		if (ft_checkinput_nbrs(argc, argv) == 1)
+		{
+			write(2, "Error\n", 7);
+			exit(-1);
+		}
+		tmp = ft_atoi(argv[1]);
+		if (tmp < -2147483648 || tmp > 2147483647)
+		{
+			write(2, "Error\n", 7);
+			exit(-1);
+		}
+		if (argc >= 3)
+		{
+			ft_populate_list(&a_stack, argc, argv);
+			line = get_next_line(0);
+			ft_execute_move(&a_stack, &b_stack, line);
+			while (line != NULL)
+			{
+				line = get_next_line(0);
+				ft_execute_move(&a_stack, &b_stack, line);
+			}
+		}
 	}
 	if (ft_is_list_ordered(a_stack) == 0)
-		printf("KO\n");
+		write(1, "KO\n", 3);
 	else
-		printf("OK\n");
+		write(1, "OK\n", 3);
+	ft_free_list(a_stack);
 }

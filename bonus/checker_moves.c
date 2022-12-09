@@ -11,25 +11,44 @@ void	ft_do_pa_pb(t_lista **a, t_lista **b)
 
 void	ft_do_ra_rb(t_lista **lista)
 {
-	int		tmp;
-	t_lista	*temphead;
+	t_lista	*tmp;
+	t_lista	*putback;
 
-	temphead = (*lista)->next;
-	tmp = (*lista)->nb;
-	ft_add_element(lista, tmp);
-	ft_remove_first(lista);
-	*lista = temphead;
+	if ((*lista)->next != NULL)
+	{
+		putback = *lista;
+		tmp = *lista;
+		while (tmp->next)
+			tmp = tmp->next;
+		*lista = (*lista)->next;
+		tmp->next = putback;
+		putback->next = NULL;
+		putback->prev = tmp;
+	}
 }
 
-void	ft_do_rra_rrb(t_lista **lista)
+void	ft_do_rra_rrb(t_lista **head)
 {
-	int	tmp;
+	t_lista	*tmp;
+	t_lista	*prev;
 
-	if (ft_list_length(*lista) == 1)
+	if (*head == NULL || (*head)->next == NULL)
 		return ;
-	tmp = ft_list_last(*lista)->nb;
-	ft_add_element_to_start(lista, tmp);
-	ft_remove_last(lista);
+	else
+	{
+		tmp = *head;
+		prev = *head;
+		while (tmp->next != NULL)
+		{
+			prev = tmp;
+			tmp = tmp->next;
+		}
+		prev->next = NULL;
+		tmp->next = *head;
+		tmp->prev = NULL;
+		tmp->next->prev = tmp;
+		*head = tmp;
+	}
 }
 
 void	ft_do_sa_sb(t_lista *lista)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lapenji <lapenji@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:34:46 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/08 18:06:50 by lapenji          ###   ########.fr       */
+/*   Updated: 2022/12/09 16:57:40 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_remove_first(t_lista **lista);
 t_lista	*ft_list_last(t_lista *lst);
 void	ft_remove_last(t_lista **lista);
 //utility varie
-int		ft_atoi(const char *nptr);
+long	ft_atoi(const char *nptr);
 int		ft_find_min(t_lista *lista);
 int		ft_absolute(int nb);
 int		ft_is_number(char c);

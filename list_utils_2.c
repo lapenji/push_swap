@@ -6,7 +6,7 @@
 /*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:34:17 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/07 18:57:34 by ltombell         ###   ########.fr       */
+/*   Updated: 2022/12/09 14:05:56 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ void	ft_remove_first(t_lista **lista)
 		free (tmp);
 	}
 	else
-		(*lista) = NULL;
+	{
+		free(tmp);
+		*lista = NULL;
+	}
 }
 
 t_lista	*ft_list_last(t_lista *lst)

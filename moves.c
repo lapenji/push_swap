@@ -6,7 +6,7 @@
 /*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:34:30 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/07 19:08:56 by ltombell         ###   ########.fr       */
+/*   Updated: 2022/12/09 15:00:08 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,51 @@
 
 void	ra_rb(t_lista **lista, char c)
 {
-	int		tmp;
-	t_lista	*temphead;
+	t_lista	*tmp;
+	t_lista	*putback;
 
-	temphead = (*lista)->next;
-	tmp = (*lista)->nb;
-	ft_add_element(lista, tmp);
-	ft_remove_first(lista);
-	*lista = temphead;
-	if (c == 'a')
-		write(1, "ra\n", 3);
-	else if (c == 'b')
-		write(1, "rb\n", 3);
+	if ((*lista)->next != NULL)
+	{
+		putback = *lista;
+		tmp = *lista;
+		while (tmp->next)
+			tmp = tmp->next;
+		*lista = (*lista)->next;
+		tmp->next = putback;
+		putback->next = NULL;
+		putback->prev = tmp;
+		if (c == 'a')
+			write(1, "ra\n", 3);
+		else if (c == 'b')
+			write(1, "rb\n", 3);
+	}
 }
 
-void	rra_rrb(t_lista	**lista, char c)
+void	rra_rrb(t_lista **head, char c)
 {
-	int	tmp;
+	t_lista	*tmp;
+	t_lista	*prev;
 
-	if (c == 'b' && ft_list_length(*lista) == 1)
+	if (*head == NULL || (*head)->next == NULL)
 		return ;
-	tmp = ft_list_last(*lista)->nb;
-	ft_add_element_to_start(lista, tmp);
-	ft_remove_last(lista);
+	else
+	{
+		tmp = *head;
+		prev = *head;
+		while (tmp->next != NULL)
+		{
+			prev = tmp;
+			tmp = tmp->next;
+		}
+		prev->next = NULL;
+		tmp->next = *head;
+		tmp->prev = NULL;
+		tmp->next->prev = tmp;
+		*head = tmp;
+	}
 	if (c == 'a')
 		write(1, "rra\n", 4);
-	else if (c == 'b')
+	if (c == 'b')
 		write(1, "rrb\n", 4);
 }
 

@@ -1,23 +1,34 @@
 #include "checker.h"
 
-// int	ft_strcmp(char *s1, char *s2)
-// {
-// 	int	i;
-// 	i = 0;
+int	ft_is_number(char c)
+{
+	if (c < '0' || c > '9')
+		return (0);
+	return (1);
+}
 
-// 	while (s1 && s2)
-// 	{
-// 		if (s1[i] != s)
-// 			return (1);
-// 		i++;
-// 	}
-// 	if (s1[i] = '\0' && s2[i] == '\0')
-// 		return (0);
-// 	else
-// 		return (1);
-// }
+int	ft_checkinput_nbrs(int argc, char **argv)
+{
+	int	i;
+	int	b;
 
-// int	ft_what_move(char *str1, char *str2)
-// {
-
-// }
+	i = 0;
+	b = 1;
+	while (b < argc)
+	{
+		if (argv[b][0] == '\0')
+			return (1);
+		if ((argv[b][i] == '-' || argv[b][i] == '+')
+		&& ft_is_number(argv[b][i + 1]) == 1)
+			i++;
+		while (argv[b][i])
+		{
+			if (ft_is_number(argv[b][i]) == 0)
+				return (1);
+			i++;
+		}
+		i = 0;
+		b++;
+	}
+	return (0);
+}
