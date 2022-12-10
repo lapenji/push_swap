@@ -6,7 +6,7 @@
 /*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:34:23 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/07 14:48:22 by ltombell         ###   ########.fr       */
+/*   Updated: 2022/12/10 11:18:15 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,18 @@ void	ft_add_element_to_start(t_lista **lista, int nb)
 		(*lista)->prev = new;
 		*lista = new;
 	}
+}
+
+int	ft_check_for_doubles(t_lista *list, int nb)
+{
+	t_lista	*tmp;
+
+	tmp = list;
+	while (tmp)
+	{
+		if (tmp->nb == nb)
+			return (1);
+		tmp = tmp->next;
+	}
+	return (0);
 }

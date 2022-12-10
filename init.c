@@ -6,7 +6,7 @@
 /*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:33:31 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/09 17:15:05 by ltombell         ###   ########.fr       */
+/*   Updated: 2022/12/10 10:36:49 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	ft_check_for_doubles(t_lista *list, int nb)
 
 void	ft_populate_list(t_lista **lst, int argc, char **argv)
 {
-	int	i;
+	int		i;
 	long	tmp;
 
 	i = 1;

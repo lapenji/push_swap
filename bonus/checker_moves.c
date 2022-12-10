@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker_moves.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/10 10:38:18 by ltombell          #+#    #+#             */
+/*   Updated: 2022/12/10 10:40:34 by ltombell         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "checker.h"
 
 void	ft_do_pa_pb(t_lista **a, t_lista **b)
@@ -64,10 +76,4 @@ void	ft_do_rr(t_lista **a, t_lista **b)
 {
 	ft_do_ra_rb(a);
 	ft_do_ra_rb(b);
-}
-
-void	ft_do_rrr(t_lista **a, t_lista **b)
-{
-	ft_do_rra_rrb(a);
-	ft_do_rra_rrb(b);
 }

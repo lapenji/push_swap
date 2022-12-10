@@ -6,7 +6,7 @@
 /*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:33:59 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/09 16:57:19 by ltombell         ###   ########.fr       */
+/*   Updated: 2022/12/10 10:37:24 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 long	ft_atoi(const char *nptr)
 {
-	int	i;
+	int		i;
 	long	result;
-	int	sign;
+	int		sign;
 
 	i = 0;
 	result = 0;

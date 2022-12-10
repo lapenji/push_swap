@@ -6,7 +6,7 @@
 /*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:34:17 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/09 18:33:33 by ltombell         ###   ########.fr       */
+/*   Updated: 2022/12/10 10:58:06 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,30 @@ void	ft_remove_last(t_lista **lista)
 	else
 		(*lista) = NULL;
 	*lista = tmp;
+}
+
+void	ft_free_list(t_lista *lst)
+{
+	t_lista	*tmp;
+
+	while (lst)
+	{
+		tmp = lst;
+		lst = lst->next;
+		free(tmp);
+	}
+}
+
+int	ft_is_list_ordered(t_lista	*lst)
+{
+	t_lista	*tmp;
+
+	tmp = lst;
+	while (tmp->next)
+	{
+		if (tmp->nb > tmp->next->nb)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
 }
