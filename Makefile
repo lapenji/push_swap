@@ -53,17 +53,27 @@ ${NAME}:	${OBJS}
 all:		${NAME}
 
 bonus:		all
+			cd bonus && $(MAKE)
 
 clean:
 			@ ${RM} *.o */*.o */*/*.o
 			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
 
+bonusclean: clean
+			cd bonus && $(MAKE) clean
+
 fclean:		clean
 			@ ${RM} ${NAME}
 			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binary ✔️"
 
+bonusfclean:	fclean
+				cd bonus && $(MAKE) fclean
+
 re:			fclean all
 
-.PHONY:		all clean fclean re
+bonusre:	re
+			cd bonus && $(MAKE) re
+
+.PHONY:		all clean fclean re bonus bonusclean bonusfclean bonusre
 
 
