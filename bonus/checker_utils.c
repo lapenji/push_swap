@@ -6,7 +6,7 @@
 /*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 10:39:57 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/10 10:57:13 by ltombell         ###   ########.fr       */
+/*   Updated: 2022/12/11 10:59:49 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,4 @@ int	ft_checkinput_nbrs(int argc, char **argv)
 		b++;
 	}
 	return (0);
-}
-
-void	ft_do_rrr(t_lista **a, t_lista **b)
-{
-	ft_do_rra_rrb(a);
-	ft_do_rra_rrb(b);
 }

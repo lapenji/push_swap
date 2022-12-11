@@ -6,7 +6,7 @@
 /*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:33:31 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/10 10:36:49 by ltombell         ###   ########.fr       */
+/*   Updated: 2022/12/11 10:46:07 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ void	ft_populate_list(t_lista **lst, int argc, char **argv)
 		tmp = ft_atoi(argv[i]);
 		if (tmp < -2147483648 || tmp > 2147483647)
 		{
-			write(2, "Error\n", 7);
+			write(2, "Error\nargument outside int range\n", 34);
 			exit(-1);
 		}
 		if (ft_check_for_doubles(*lst, tmp) == 1)
 		{
-			write(2, "Error\n", 7);
+			write(2, "Error\ndouble number\n", 21);
 			exit(-1);
 		}
 		ft_add_element(lst, tmp);

@@ -6,7 +6,7 @@
 /*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 12:36:37 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/09 17:35:13 by ltombell         ###   ########.fr       */
+/*   Updated: 2022/12/11 11:33:19 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_freenreturn(char *str);
 int		ft_checkinput_nbrs(int argc, char **argv);
-
 
 #endif

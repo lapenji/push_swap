@@ -6,7 +6,7 @@
 /*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 10:43:50 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/10 11:18:32 by ltombell         ###   ########.fr       */
+/*   Updated: 2022/12/11 11:15:28 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,12 @@ void	ft_do_rra_rrb(t_lista **lista);
 void	ft_do_sa_sb(t_lista *lista);
 void	ft_do_rr(t_lista **a, t_lista **b);
 void	ft_do_rrr(t_lista **a, t_lista **b);
+void	ft_do_ss(t_lista **a, t_lista **b);
 //various utils
 long	ft_atoi(const char *nptr);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_checkinput_nbrs(int argc, char **argv);
 int		ft_check_for_doubles(t_lista *list, int nb);
+void	ft_choose_move_p(t_lista **a_stack, t_lista **b_stack, char *line);
 
 #endif

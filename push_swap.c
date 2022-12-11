@@ -6,7 +6,7 @@
 /*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:34:35 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/09 17:45:46 by ltombell         ###   ########.fr       */
+/*   Updated: 2022/12/11 11:31:48 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,13 @@ int	main(int argc, char **argv)
 	{
 		if (ft_checkinput_nbrs(argc, argv) == 1)
 		{
-			write(2, "Error\n", 7);
+			write(2, "Error\none argument is not a number\n", 36);
 			exit(-1);
 		}
 		tmp = ft_atoi(argv[1]);
 		if (tmp < -2147483648 || tmp > 2147483647)
 		{
-			write(2, "Error\n", 7);
+			write(2, "Error\nargument outside int range\n", 34);
 			exit(-1);
 		}
 		else if (argc <= 11 && argc > 2)
