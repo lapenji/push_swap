@@ -1,3 +1,3 @@
 # push_swap
 
-progetto per la scuola 42, ordinare un set di numeri usando solo due stack e meno mosse possibili
+push_swap is a sorting algorithm project assigned by 42 coding school. The project requires the implementation of two programs in the C programming language that can sort an array of integers in ascending order using two stacks and a specific set of rules. The push_swap program generates a list of operations to sort an unsorted list of integers, while the checker program verifies if the list of operations correctly sorts the list. The project focuses on optimizing the number of operations required to sort the list and minimizing the movement of integers between the two stacks. It tests the students' knowledge of sorting algorithms, stack manipulation, and algorithm optimization.
